@@ -11,3 +11,8 @@ import { enableTailwind } from '@remotion/tailwind-v4';
 Config.setVideoImageFormat("jpeg");
 Config.setOverwriteOutput(true);
 Config.overrideWebpackConfig(enableTailwind);
+
+// Cloud session: use the preinstalled headless Chromium (remotion.media download is blocked here)
+const preinstalled = "/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell";
+import fs from "fs";
+if (fs.existsSync(preinstalled)) Config.setBrowserExecutable(preinstalled);
